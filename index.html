@@ -51,8 +51,17 @@
         var materialLambert = new THREE.MeshLambertMaterial({color: "#800080"});
         //The Material that will be applied to the object
         
+        //CustomTexture Time
+        var cubeMaterials = [
+            new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader( ).load('img/SideBlock.png'), side: THREE.DoubleSide } ), //Right Side
+            new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader( ).load('img/SideBlock.png'), side: THREE.DoubleSide } ), //Left Side
+            new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader( ).load('img/BottomBlock.png'), side: THREE.DoubleSide } ), //Top Side
+            new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader( ).load('img/TopBlock.png'), side: THREE.DoubleSide } ), //Bottom Side
+            new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader( ).load('img/SideBlock.png'), side: THREE.DoubleSide } ), //Front Side
+            new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader( ).load('img/SideBlock.png'), side: THREE.DoubleSide } ), //Back side
+        ]
         // create the overall mesh
-        var mesh = new THREE.Mesh(Geometry, materialLambert);
+        var mesh = new THREE.Mesh(Geometry, cubeMaterials);
 
         scene.add(mesh);
         //scene has no lights, lets fix that
